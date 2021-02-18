@@ -61,9 +61,6 @@ body {
   color: #999;
 }
 
-.main-container {
-
-}
 
 h1 {
   font-size: 1em;
@@ -77,14 +74,16 @@ a {
 
 .container {
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
+  .profile-section {
+    margin-right: 100px;
+  }
+  
 .portrait {
-  background-image: url(assets/profile3.jpg);
-  background-size: cover;
-  padding-top: 56.25%;
   max-width: 100%;
-  max-height: 100%;
 }
 
 .profile {
@@ -92,15 +91,21 @@ a {
 }
 
 .profile-header.portrait,
-.section {
+.profile-section {
   padding-bottom: 3.125em;
 }
+
 
 .name {
   font-size: 1.875em;
   line-height: 1.5;
   font-style: italic;
-  margin-bottom: 40px;
+  position: sticky;
+  top: -1.8em;
+  background-color: #111;
+  box-shadow: 0 0 50px 10px #111;
+  padding: 1em;
+
 }
 
 .name-job {
@@ -126,7 +131,7 @@ a {
 }
 
 .name-job-list {
-  font-size: 30px;
+font-size: 30px;
 animation-name: rolling;
 animation-duration: 3s;
 animation-iteration-count: infinite;
@@ -137,16 +142,21 @@ animation-direction: reverse;
   font-size: 1.3em;
   line-height: 1em;
   color: deeppink;
-
+  margin-left: -0.3em;
+  position: relative;
   margin-bottom: 40px;
 }
 
 .text {
     max-width: 500px;
+    padding: 1.875em;
+
 }
 
 .icons {
     margin: 1.875em 0px;
+    padding: 1em;
+
 }
 
 .icons a {
@@ -163,3 +173,96 @@ animation-direction: reverse;
 
 .icons a:hover { background-position-y: bottom; }
 
+.graph {
+  padding: 1.875em;
+}
+
+.graph li {
+  background: rgb(104,97,232);
+  background: linear-gradient(90deg, rgba(104,97,232,1) 0%, rgba(190,0,255,1) 100%);
+  color: #fff;
+  padding: 0.5em 1em;
+  margin: 0.4em 0;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.graph li::before {
+  content: attr(data-score);
+  float: right;
+  
+}
+
+.graph li[data-score="80%"] { width: 80%; }
+.graph li[data-score="100%"]  { width: 100%; }
+.graph li[data-score="50%"] { width: 50%; }
+.graph li[data-score="80%"] { width: 80%; }
+.graph li[data-score="70%"] { width: 70%; }
+
+.profile-section h2 {
+  border-top: 3px solid;
+  color: orangered;
+  margin-bottom: 20px;
+  padding: 0.5em 0;
+  position: sticky;
+  top: 0;
+  background-color: #111;
+  box-shadow: 0 0 50px 10px #111;
+}
+
+.profile-section {
+  padding: 1.875em;
+}
+
+.list {
+    color: #666;
+}
+
+.list dt {
+    color: orange;
+    float: left;
+    width: 4em;
+}
+
+.list dd {
+    overflow: hidden;
+}
+
+/*target only screen up to 375px*/
+@media only screen and (min-width: 375px) {
+  .name {
+    font-size: 0.75em;
+  }
+  .text {
+    font-size: 0.75em;
+  }
+  .profile-section h2 {
+    font-size: 1em;
+  }
+  .graph {
+    font-size: 0.75em;
+  }
+}
+
+
+/*target only screen up to 1024px*/
+@media only screen and (min-width: 1024px) {
+  .name {
+    font-size: 40px;
+  }
+  .name-title {
+    font-size: 60px;
+  }
+  .text {
+    font-size: 1.875em;
+  }
+  .profile-section h2 {
+    font-size: 2em;
+  }
+  .graph {
+    font-size: 1.25em;
+  }
+  .list {
+    font-size: 1.875em;
+  }
+}
